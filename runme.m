@@ -20,8 +20,7 @@
 % from the authors.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-addpath(genpath([pwd '/NuclearSegmentation']));
-addpath(genpath([pwd '/FeatureExtraction']));
+addpath(genpath([pwd]));
 % addpath(genpath('./CCM_CRL'));
 % C:\Nutstore\Nutstore\4PublicProgram\Feature_extraction\extract_all_features\FeatureExtraction\CCM_CRL
 %% step 1: load image
