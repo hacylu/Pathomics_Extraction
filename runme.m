@@ -19,7 +19,7 @@
 % work. (5) Any of these conditions can be waived if you get permission
 % from the authors.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+dbstop if error
 addpath(genpath([pwd]));
 % addpath(genpath('./CCM_CRL'));
 % C:\Nutstore\Nutstore\4PublicProgram\Feature_extraction\extract_all_features\FeatureExtraction\CCM_CRL
@@ -27,7 +27,8 @@ addpath(genpath([pwd]));
 img = imread('test.png');
 
 %% step 2: segment nuclei and save boundaries, change the scale for different magnification of image
-scales = 8:2:14;
+% scales = 8:2:14;
+scales = 8:4:16;
 [bounds, nuclei, properties] = Veta(img, scales);
 
 %% step 3: extract features
@@ -43,9 +44,11 @@ scales = 8:2:14;
 % 4. cluster graph features(26)
 [clustergraphfeats] = extract_all_features(bounds, img, 4);
 
-% 5. haralick features(26)
-[haralickfeats] = extract_all_features(bounds, img, 5);
+% you donn't want to calculate texture features I guess :) it is time
+% comsuming and may end up with nothing useful
+% % 5. haralick features(26) 
+% [haralickfeats] = extract_all_features(bounds, img, 5);
 
-% 6. texture features (720) (Grayscale(15), Gabor(24), Laws(25), Local Binary Pattern(16) = 80 * (HSV 3channels) * (mean, std, mode))
-[texturefeats] = extract_texture_features(img);
+% % 6. texture features (720) (Grayscale(15), Gabor(24), Laws(25), Local Binary Pattern(16) = 80 * (HSV 3channels) * (mean, std, mode))
+% [texturefeats] = extract_texture_features(img);
 
